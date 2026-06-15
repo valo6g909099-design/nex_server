@@ -28,7 +28,7 @@ async function getCryptoItems(req, res) {
 
   
 
-
+    console.log(error)
 
 
 
