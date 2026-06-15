@@ -24,6 +24,7 @@ async function getCryptoItems(req, res) {
     const cryptoItemsData = await getCryptousersByEmail(decoded.email);
 
   console.log(cryptoItemsData)
+    
 
 
     
