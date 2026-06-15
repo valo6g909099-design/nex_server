@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const {getCryptousersByEmail} = require('./../../db/cryptousers')
 async function checkAuth(req, res) {
- console.log(`asdasd asd asd ${req.headers["authorization"]}`)
+ 
   const authHeader = req.headers["authorization"];
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     console.log('1st')
