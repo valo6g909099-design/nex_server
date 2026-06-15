@@ -12,7 +12,7 @@ async function checkAuth(req, res) {
 
   const token = authHeader.split(" ")[1];
   if (!token) {
-    console.log('1st')
+    console.log('12st')
     return res
       .status(401)
       .json({ success: false, message: "Invalid token format" });
@@ -26,11 +26,11 @@ async function checkAuth(req, res) {
   } catch (error) {
     if (error.name === "TokenExpiredError") {
 
-      console.log('1st')
+      console.log('13st')
       return res.status(401).json({ success: false, message: "Token expired" });
     }
     if (error.name === "JsonWebTokenError") {
-      console.log('1st')
+      console.log('14st')
       return res.status(401).json({ success: false, message: "Invalid token" });
     }
     return res.status(500).json({ success: false, message: "Server error" });
