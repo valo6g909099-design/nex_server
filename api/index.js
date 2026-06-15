@@ -8,7 +8,7 @@ const cryptoRoutes = require("../routes/crypto/crypto");
 const app = express();
 app.use(
   cors({
-    origin: "*",
+    origin: "http://localhost:4200",
     credentials: true,
   }),
 );
