@@ -22,6 +22,11 @@ async function getCryptoItems(req, res) {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     console.log(decoded)
     const cryptoItemsData = await getCryptousersByEmail(decoded.email);
+
+  console.log(cryptoItemsData)
+
+
+    
     const result = await getProtfolio(cryptoItemsData["crypto"]);
     return res.status(200).json({ success: true, data: result });
   } catch (error) {
