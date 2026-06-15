@@ -4,6 +4,7 @@ async function checkAuth(req, res) {
   console.log(req.headers["authorization"])
   const authHeader = req.headers["authorization"];
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    console.log('1st')
     return res
       .status(401)
       .json({ success: false, message: "No token provided" });
@@ -11,6 +12,7 @@ async function checkAuth(req, res) {
 
   const token = authHeader.split(" ")[1];
   if (!token) {
+    console.log('1st')
     return res
       .status(401)
       .json({ success: false, message: "Invalid token format" });
@@ -23,9 +25,12 @@ async function checkAuth(req, res) {
     return res.status(200).json({ success: true, user: decoded});
   } catch (error) {
     if (error.name === "TokenExpiredError") {
+
+      console.log('1st')
       return res.status(401).json({ success: false, message: "Token expired" });
     }
     if (error.name === "JsonWebTokenError") {
+      console.log('1st')
       return res.status(401).json({ success: false, message: "Invalid token" });
     }
     return res.status(500).json({ success: false, message: "Server error" });
