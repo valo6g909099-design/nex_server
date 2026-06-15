@@ -67,7 +67,7 @@ async function login(req, res) {
   console.log(token)
   res.cookie("token", token, {
     httpOnly: false,
-    secure: false,
+    secure: true,
     sameSite: "none",
     maxAge: cookieExpiry,
   });
