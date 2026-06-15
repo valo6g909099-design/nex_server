@@ -68,11 +68,11 @@ async function login(req, res) {
 
   const isProduction = process.env.NODE_ENV === "production";
 
-  // ✅ Fixed cookie — works for both localhost and Vercel
+ 
   res.cookie("token", token, {
     httpOnly: false,
-    secure: isProduction,                          // true on Vercel (https), false on localhost
-    sameSite: isProduction ? "none" : "lax",       // "none" for cross-origin Vercel, "lax" for localhost
+    secure: isProduction,                          
+    sameSite: isProduction ? "none" : "lax",      
     maxAge: cookieExpiry,
   });
 
