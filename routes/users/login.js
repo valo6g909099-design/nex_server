@@ -64,7 +64,7 @@ async function login(req, res) {
     process.env.JWT_SECRET,
     { expiresIn: tokenExpiry },
   );
-
+  console.log(token)
   res.cookie("token", token, {
     httpOnly: false,
     secure: process.env.NODE_ENV === "production",
