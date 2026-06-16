@@ -8,10 +8,11 @@ async function toBuy(req,res){
     const getUsersItems = await getCryptousersByEmail(isauth?.email)
     const cryptoItems = getUsersItems['crypto']
     
-    if (cryptoItems['USD'].amount>=req.body.totalAmount) {
+    const actualvalue =req.body.totalAmount*req.body.amount
+    if (cryptoItems['USD'].amount>=actualvalue) {
             
             cryptoItems[req.body.cryptoName].amount = cryptoItems[req.body.cryptoName].amount + req.body.amount
-            cryptoItems['USD'].amount = cryptoItems['USD'].amount -   req.body.totalAmount
+            cryptoItems['USD'].amount = cryptoItems['USD'].amount -   actualvalue
     }else{
          return res.status(402).json({ success: false, message: "Insufficient funds",amount:cryptoItems['USD'].amount });
 
