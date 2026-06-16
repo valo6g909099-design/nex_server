@@ -12,7 +12,7 @@ async function toSell(req, res) {
     const cryptoItems = getUsersItems["crypto"];
     if (cryptoItems[req.body.cryptoName].amount >= req.body.amount) {
       cryptoItems["USD"].amount =
-        cryptoItems["USD"].amount + req.body.totalAmount;
+        cryptoItems["USD"].amount + req.body.totalAmount*req.body.amount;
       cryptoItems[req.body.cryptoName].amount =
         cryptoItems[req.body.cryptoName].amount - req.body.amount;
     } else {
