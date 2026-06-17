@@ -9,7 +9,7 @@ const cryptoRoutes = require("../routes/crypto/crypto");
 const app = express();
 
 const allowedOrigins = [
-  "http://localhost:4200",
+  "https://nex-client-kappa.vercel.app",
   
 ];
 
